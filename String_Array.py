@@ -16,5 +16,3 @@ def create_array(string):
 
     return array
 
-
-print(create_array("This is a string"))
