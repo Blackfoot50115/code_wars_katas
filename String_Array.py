@@ -8,25 +8,13 @@ def create_array(string):
         string == a string data type
 
     Algorithm:
-        -Check the data type of string
-        -If string's data type is a "string" then:
-            Split string into separate words --> array[]
-            Return array
-        Else:
-            generate error message
-            return error message
+        Split string into separate words --> array[]
+        Return array
     """
 
-    # Check the data type as a string. If yes, returns bool true --> is_string. If no, returns bool false --> is_string
-    is_string = type(string) is str
+    array = string.split(" ")
 
-    # Begin logic
-    if is_string:
-        array = string.split(" ")
-        return array
-    else:
-        error_message = "Argument must be of data type 'string'"
-        return error_message
+    return array
 
 
 print(create_array("This is a string"))
