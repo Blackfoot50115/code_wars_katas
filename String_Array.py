@@ -18,12 +18,15 @@ def create_array(string):
     """
 
     # Check the data type as a string. If yes, returns bool true --> is_string. If no, returns bool false --> is_string
-    is_string = type(string) is string
+    is_string = type(string) is str
 
     # Begin logic
     if is_string:
         array = string.split(" ")
         return array
     else:
-        error_message = "Argument must be of data 'type string'"
+        error_message = "Argument must be of data type 'string'"
         return error_message
+
+
+print(create_array("This is a string"))
