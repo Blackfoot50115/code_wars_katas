@@ -12,14 +12,13 @@ def choose_best_sum(t, k, ls):
 
         Algorithm:
             1.)Generate random summations of k items from ls --> summation_list
-                Determine the number of possible summations --> num_of_samples
-                Randomly draw 'num_of_samples' samples without replacing values --> summation_list[]
             2.)Pick largest item from summation_list that is <= t --> var_largest_summation
             3.)Return largest_summation
 
         Additional reading:
             -The following resource details unordered sampling without replacement
                 https://www.probabilitycourse.com/chapter2/2_1_3_unordered_without_replacement.php
+            -The following resource details
     '''
 
     from itertools import combinations
@@ -33,6 +32,8 @@ def choose_best_sum(t, k, ls):
         summations_list.append(total_distance)
 
     qualifiers = [i for i in summations_list if i <= t]
+    if not qualifiers:
+        exit()
     largest_sum = max(qualifiers)
     return largest_sum
 
