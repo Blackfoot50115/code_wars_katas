@@ -18,28 +18,32 @@ def choose_best_sum(t, k, ls):
         Additional reading:
             -The following resource details unordered sampling without replacement
                 https://www.probabilitycourse.com/chapter2/2_1_3_unordered_without_replacement.php
-            -The following resource details
     '''
 
     from itertools import combinations
 
-    distances_list = list(combinations(ls, k))
+    # Create empty list to hold summations
     summations_list = []
 
-    for i in distances_list:
-        list(i)
-        total_distance = sum(i)
-        summations_list.append(total_distance)
+    # Getting combinations(unordered sampling without replacement), convert to a list and store
+    distances_list = list(combinations(ls, k))
 
+    # Finds the summation of each sub-set in distances_list
+    for i in distances_list:
+        # i is a tuple, must convert to list data type before using sum()
+        list(i)
+
+        # Find the summation and add it to the summations_list
+        summations_list.append(sum(i))
+
+    # Filter out the summations that are larger than t
     qualifiers = [i for i in summations_list if i <= t]
+
+    # Handle exception: qualifiers is empty
     if not qualifiers:
         exit()
+
+    # Find the largest value in qualifiers
     largest_sum = max(qualifiers)
+
     return largest_sum
-
-
-# Just used for testing the function
-xs = [100, 76, 56, 44, 89, 73, 68, 56, 64, 123, 2333, 144, 50, 132, 123, 34, 89]
-
-best_sum = choose_best_sum(400, 3, xs)
-print(best_sum)
